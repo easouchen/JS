@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>放大镜</title>
+		<style type="text/css">
+			/**{
+				padding: 0;
+				margin: 0;
+			}*/
+			.suolve{		
+				position: absolute;			
+				background-repeat: no-repeat;
+			}
+			.subimgae{
+				padding: 0;
+				margin: 0;
+				position: absolute;
+				width: 200px;
+				height: 200px;
+				margin-left: 450px;
+				overflow: hidden;
+				/*background: url(img/bg2.jpg) no-repeat;*/
+				
+			}
+			.showtext{	
+				width: 15%;
+				height: 15%;
+			/*	border:1px solid;*/
+				position: absolute;		
+				margin: 250px;
+			}
+			/*#img1{
+				position: relative;
+				top: -150px;
+				left -200px;
+			}*/
+		</style>	
+		<script type="text/javascript">
+			var x,y ;
+			function onmove(obj,evn){
+				var textx = document.getElementById("px")
+				var texty = document.getElementById("py")
+				subimage = document.getElementById("sub2")
+				var h = obj.height
+				var w = obj.width
+				img1.hidden = false	
+				event = evn||window.event; 	
+   				x = (event.clientX)/w
+   				y = (event.clientY)/h	
+   				textx.innerHTML="X IS: "+x
+   				texty.innerHTML="Y is: "+y 
+   				subimage.scrollLeft = img1.width*x-116
+   				subimage.scrollTop = img1.height*y-108
+			}
+			function moveout(){
+				img1.hidden = "hidden"		
+			}
+		</script>
+	</head>
+	<body>
+		<div>
+			<div class="suolve">
+				<img src="img/bg2.jpg" width="400px" onmousemove="onmove(this)" onmouseout="moveout()"/>
+			</div>	
+		</div>	
+		<div class="subimgae" id ="sub2">
+			<img id="img1" src="img/bg2.jpg" hidden="hidden"/>
+		</div>
+		<div class ="showtext">
+			<label id = "px"></label>
+			<label id = "py"></label>
+		</div>
+	</body>
+</html>

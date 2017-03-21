@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+	</head>
+	<style type="text/css">
+		.top1{
+			margin: 0px;
+			padding: 0px;
+			width: 455px;
+			height: 111px;
+			position: absolute;
+		/*	background: yellow;*/
+		}
+		.top2{
+			margin-left: 65%;
+			padding: 0px;
+			width: 355px;
+			height: 111px;
+			position: absolute;
+		/*	background: yellow;*/
+			text-align: right;
+		}
+		.subdiv{
+			
+			height: 355px;
+			width: 455px;
+			margin-left: 19%;
+			margin-top: 11%;
+			background: /*lightblue*/;
+			position: absolute;	
+		}
+		.sub2{
+			
+			height: 355px;
+			width: 255px;
+			margin-left: 61%;
+			margin-top: 11%;
+			position: absolute;	
+		}
+		.split2{
+			margin-left: 55%;
+			margin-top: 11%;
+			
+		}
+		.show{
+			
+			font-size: small;
+			color: red;
+		}
+		
+		form input{
+			border: none;
+		}
+	</style>
+	
+	<body>
+		<script type="text/javascript">
+			
+			function clearinfo(id){
+				switch (id){
+					case 1:
+						uerror.innerHTML = " "
+						uname.placeholder =" "
+						break;
+					case 2:
+						perror.innerHTML =" "
+						break;
+					case 3:
+						merror.innerHTML =" "
+						break;
+					case 4:
+						pherror.innerHTML =" "
+						break;	
+					
+				}
+				
+			}
+			function checkname(uname){ 
+				uname = document.form1.username;
+				uerror = document.getElementById("uerror")
+				if(uname.value.match(/^\w{4,16}$/)==null){ 		
+					uerror.innerHTML ="账号信息必须为4-16位的字母数字和下划线"	
+					return false;
+				}
+				return true;
+				}
+			
+			function checkpass(){ 
+				upass = document.form1.passwd.value;
+				perror = document.getElementById("perror")
+				if(upass.match(/^\w{6,18}$/)==null){ 		
+					perror.innerHTML ="密码必须为6-18位"	
+					return false;
+				}
+				return true;
+				}
+			function checkmail(){ 
+				mail = document.form1.mail.value;
+				merror = document.getElementById("mail1")
+				if(mail.match(/^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/)==null){ 		
+//					alert("账号信息必须为4-16位的字母数字和下划线")  ;
+					merror.innerHTML ="邮箱格式错误，请重新输入"	
+					return false;
+				}
+				return true;
+				}
+			function checkphone(){ 
+				uphone = document.form1.phone.value;
+				pherror = document.getElementById("pherror")
+				if(uphone.match(/^\d{11,11}$/)==null){ 		
+					pherror.innerHTML ="号码必须为11位数字"	
+					return false;
+				}
+				return true;
+				}
+			function doSubmit(){
+			 if (!(checkname() && checkpass() && checkmail() && checkphone())){
+			 	if (uname= ' '){
+			 	uerror.innerHTML ="账号信息必须为4-16位的字母数字和下划线"	
+			 }
+			 }
+			}
+		</script>
+		<div class="main">
+			<div class="top1">
+				<a href="https://www.jd.com"><img src="img/jd.png" style="margin-left: 45px; margin-top: 5px; border: none;"/></a>
+			</div>
+			<div id="">
+				<h2 style="position: absolute;margin-left: 241px;margin-top: 31px;">欢迎注册</h2>
+			</div>
+			<div class="top2">
+				<div style="position: absolute;margin-left: 155px;margin-top: 35px;">
+					<table border="0" cellspacing="0" cellpadding="0">
+						<tr><td width="75px" style="color:lightgray;"><h4>已有账号?</h4></td>
+							<td width="55px"><a href="https://passport.jd.com/new/login.aspx" style="color: black;text-decoration: none;"><h4>请登录</h4></td></a>
+						</tr>
+					</table>	
+				</div>
+			</div>
+			<div class="split1" style="background-color:gainsboro;position: absolute;height: 3px;width:99%; margin-top: 102px;"></div>
+			<div class="split2" style="background-color: gainsboro; position: absolute;width: 1px;height: 71%;">
+				
+			</div>
+			<div class="sub2">
+				<a href="" ><img src="img/qiye.png" style="border: none;"/></a>
+		</div>
+			
+			<div class="subdiv" align="center">
+			<form name="form1"  onsubmit="doSubmit()">
+				<table border="0px" cellspacing="0" cellpadding="0" style="font-size: larger">	
+						<tr>
+							<td width="125px">用&nbsp;户&nbsp;名</td>
+							<td ><input name="username" type="text" onblur="checkname()"  onfocus="clearinfo(1)" placeholder="请输入您的用户名" /><br /></td>
+						</tr>
+					<tr style="height: 55px;"> 
+						<td ></td>
+						<td id="uerror" class="show" style="width: 251px;">
+						</td>
+					</tr>
+					<tr>
+						<td>设置密码</td>
+						<td><input name = "passwd" type="password" placeholder="请输入您的密码" onblur="checkpass()" onfocus="clearinfo(2)"/><br /></td>	
+					</tr>	
+					<tr style="height: 55px;">
+						<td></td>
+						<td id = "perror" class="show">		
+						</td>
+					</tr>
+					<tr>
+						<td>设置邮箱</td>
+						<td><input type="text" name="mail" onblur="checkmail()" onfocus="clearinfo(3)" placeholder="请输入您的邮箱"/><br/></td>
+					</tr>
+					<tr style="height: 55px;">
+						<td></td>
+						<td id = "mail1" class="show">	
+					</tr>
+					<tr>
+						<td>手机号码</td>
+						<td><input type="text" name="phone" placeholder="请输入11位数手机号码" onblur="checkphone()" onfocus="clearinfo(4)"/><br /></td>
+					</tr>
+					<tr style="height: 55px;">
+						<td></td>
+						<td id="pherror" class="show"></td>
+					</tr>
+					<tr style="font-size: small;height: 55px;">
+						<td colspan="2"><input type="checkbox" checked="checked"/>阅读并同意<a href="" style="color: cornflowerblue; text-decoration: none;">《京东用户注册协议》  《隐私政策》</a></td>
+					</tr>	
+					<tr>
+						
+						<td colspan="2"><input type="submit"  value="提交" style="width :99% ;height: 61px ;background: red;"/></td>
+					</tr>
+				</table>			
+			</form>
+			</div>
+	</div>
+	</body>
+</html>
